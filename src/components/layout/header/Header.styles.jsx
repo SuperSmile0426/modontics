@@ -3,17 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
 	display: flex;
 	height: 64px;
-	padding: 0px 24px;
+	padding: ${(props) => `0px ${props.theme.spacing.m}`};
 	align-items: center;
 	align-self: stretch;
 
-	border-bottom: 1px solid #f1f1f1;
+	border-bottom: ${(props) => `1px solid ${props.theme.colors.greys.smoke}`};
 `;
 
 export const BrandContainer = styled.div`
 	display: flex;
 	height: 64px;
-	padding: 8px;
+	padding: ${(props) => props.theme.spacing.xs};
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;

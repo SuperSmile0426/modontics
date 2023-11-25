@@ -1,4 +1,11 @@
 import React from 'react';
+import { Container } from './Register.styles';
+import { RegisterFormComponent } from '../../components';
+
 export const RegisterPage = () => {
-	return <div>Register Page</div>;
+	return (
+		<Container>
+			<RegisterFormComponent />
+		</Container>
+	);
 };
