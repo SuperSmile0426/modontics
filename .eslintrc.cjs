@@ -10,6 +10,9 @@ module.exports = {
 	ignorePatterns: ['dist', '.eslintrc.cjs'],
 	plugins: ['react-hooks', 'react'],
 	parser: '@babel/eslint-parser',
+	rules: {
+		'react/prop-types': ['off'],
+	},
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
