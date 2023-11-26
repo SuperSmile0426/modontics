@@ -10,8 +10,8 @@ export const RegisterForm = () => {
 				<InputForm title="First Name" required />
 				<InputForm title="Last Name" required />
 				<InputForm title="Primary Phone Number" type="phone" required />
-				<div>Verify Phone</div>
-				<InputForm title="New Password" type="input" required />
+				<InputForm title="Verify Phone" type="code" required />
+				<InputForm title="New Password" type="password" required />
 				<InputForm title="Retype Password" required type="password" />
 				<Button name="Next" />
 				<div>Login</div>
