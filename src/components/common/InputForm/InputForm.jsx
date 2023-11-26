@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, StyledLabel, Title } from './InputForm.styles';
 import { Input } from '../Input/Input';
+import { Phone } from '../PhoneInput/PhoneInput';
 
 export const InputForm = (props) => {
-	const { title, required, ...rest } = props;
+	const { title, type, required, ...rest } = props;
 
 	return (
 		<Container>
@@ -13,7 +14,7 @@ export const InputForm = (props) => {
 					{required && '*'}
 				</Title>
 			</StyledLabel>
-			<Input {...rest} />
+			{type === 'phone' ? <Phone /> : <Input type={type} {...rest} />}
 		</Container>
 	);
 };
