@@ -1,6 +1,13 @@
 import React from 'react';
-import { Container, FormContainer, FormTitle } from './RegisterForm.styles';
+import {
+	Container,
+	FormContainer,
+	FormTitle,
+	LoginContainer,
+	LoginLink,
+} from './RegisterForm.styles';
 import { InputForm, Button } from '../common';
+import { CtaBig } from '../../styles';
 
 export const RegisterForm = () => {
 	return (
@@ -14,7 +21,10 @@ export const RegisterForm = () => {
 				<InputForm title="New Password" type="password" required />
 				<InputForm title="Retype Password" required type="password" />
 				<Button name="Next" />
-				<div>Login</div>
+				<LoginContainer>
+					<CtaBig>Already have an account yet?</CtaBig>
+					<LoginLink>Login</LoginLink>
+				</LoginContainer>
 			</FormContainer>
 		</Container>
 	);

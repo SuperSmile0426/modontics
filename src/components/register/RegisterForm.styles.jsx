@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { defaultTheme } from '../../styles/defaultTheme';
 import { H1 } from '../../styles';
 
@@ -29,4 +30,21 @@ export const FormContainer = styled.div`
 export const FormTitle = styled(H1)`
 	font-weight: ${(props) => props.theme.typography.weight.semiBold};
 	color: ${(props) => props.theme.colors.greys.charcoal};
+`;
+
+export const LoginContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-self: stretch;
+	gap: 4px;
+`;
+
+export const LoginLink = styled(Link)`
+	font-weight: ${(props) => props.theme.typography.weight.bold};
+	font-size: ${(props) => props.theme.typography.sizes.ctaBig.sizeWeb};
+	line-height: ${(props) =>
+		props.theme.typography.sizes.ctaBig.lineHeightDefault};
+	color: ${(props) =>
+		props.color ? props.color : props.theme.colors.primary.primary};
+	text-decoration: none;
 `;
