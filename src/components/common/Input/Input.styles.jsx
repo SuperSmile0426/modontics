@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+	position: relative;
 	display: flex;
 	flex: 1;
 	padding: 2px 8px;
@@ -32,9 +33,12 @@ export const StyledInput = styled.input`
 `;
 
 export const CodeButton = styled.button`
+	position: absolute;
+	right: 0;
 	padding: ${(props) => props.theme.spacing.xs};
 	background: ${(props) => props.theme.colors.blacksAndWhite.white};
 	border: none;
 	font-size: ${(props) => props.theme.typography.sizes.ctaMedium.sizeWeb};
 	color: ${(props) => props.theme.colors.primary.primary};
+	cursor: pointer;
 `;

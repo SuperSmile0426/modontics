@@ -1,10 +1,18 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-export const useVerificationHook = (codeLength) => {
+export const useVerificationHook = (codeLength, value) => {
 	const [inputStates, setInputStates] = useState(
 		new Array(codeLength).fill('')
 	);
 	const inputBoxReference = useRef([]);
+
+	useEffect(() => {
+		if (value)
+			setInputStates([
+				...value.split(''),
+				...new Array(4 - value.length).fill(''),
+			]);
+	}, [value, codeLength]);
 
 	const handleChange = (value, index) => {
 		if (!Number.isNaN(Number(value))) {

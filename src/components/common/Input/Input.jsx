@@ -2,12 +2,21 @@ import React, { forwardRef } from 'react';
 import { Container, StyledInput, CodeButton } from './Input.styles';
 
 export const Input = forwardRef((props, ref) => {
-	const { code, onCodeSend, ...rest } = props;
+	const { code, setSendCode, value, onChange, ...rest } = props;
+
+	const onCodeSend = (e) => {
+		e.stopPropagation();
+		setSendCode(true);
+	};
 
 	return (
 		<Container>
-			<StyledInput ref={ref} {...rest} />
-			{code && <CodeButton onClick={onCodeSend}>Send Code</CodeButton>}
+			<StyledInput ref={ref} value={value} onChange={onChange} {...rest} />
+			{code && (
+				<CodeButton onClick={onCodeSend} type="button">
+					Send Code
+				</CodeButton>
+			)}
 		</Container>
 	);
 });

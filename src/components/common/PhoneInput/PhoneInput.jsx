@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import {
 	// parsePhoneNumber,
 	getCountryCallingCode,
@@ -7,10 +7,12 @@ import 'react-phone-number-input/style.css';
 import { Input } from '../Input/Input';
 import { CustomPhoneInput } from './PhoneInput.styles';
 
-export const Phone = () => {
+export const Phone = forwardRef((props, ref) => {
+	const { value, onChange, setSendCode } = props;
+
 	const [, setPhoneCountryCode] = useState('HK');
 	const [code, setCode] = useState(false);
-	const [value, setValue] = useState('');
+	// const [value, setValue] = useState('');
 
 	useEffect(() => {
 		if (value) {
@@ -20,15 +22,16 @@ export const Phone = () => {
 
 	return (
 		<CustomPhoneInput
+			ref={ref}
 			onCountryChange={(v) => setPhoneCountryCode(v)}
 			limitMaxLength={true}
 			initialValueFormat="national"
 			value={value}
-			onChange={setValue}
+			onChange={onChange}
 			countryCallingCodeEditable
 			defaultCountry="HK"
 			inputComponent={Input}
-			numberInputProps={{ code: code }}
+			numberInputProps={{ code: code, setSendCode: setSendCode }}
 			flagComponent={(props) => (
 				<div
 					style={{
@@ -47,4 +50,6 @@ export const Phone = () => {
 			)}
 		/>
 	);
-};
+});
+
+Phone.displayName = 'Phone';

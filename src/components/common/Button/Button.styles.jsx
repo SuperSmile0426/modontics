@@ -9,6 +9,7 @@ export const StyledButton = styled.button`
 	align-items: center;
 	gap: 8px;
 	align-self: stretch;
+	cursor: pointer;
 
 	border: none;
 	border-radius: 8px;

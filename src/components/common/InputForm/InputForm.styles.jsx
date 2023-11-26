@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CtaMedium } from '../../../styles';
+import { CtaMedium, CtaSmall } from '../../../styles';
 
 export const Container = styled.div`
 	display: flex;
@@ -18,4 +18,17 @@ export const StyledLabel = styled.div`
 
 export const Title = styled(CtaMedium)`
 	color: ${(props) => props.theme.colors.greys.dawn};
+`;
+
+export const StyledError = styled.div`
+	display: flex;
+	height: 28px;
+	padding: ${(props) => `${props.theme.spacing.xs} 0`};
+	align-items: center;
+	gap: ${(props) => props.theme.spacing.xxs};
+	align-self: stretch;
+`;
+
+export const StyledErrorMsg = styled(CtaSmall)`
+	color: ${(props) => props.theme.colors.supportive.flamingo};
 `;

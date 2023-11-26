@@ -1,11 +1,28 @@
 import React from 'react';
-import { Container, StyledLabel, Title } from './InputForm.styles';
+import {
+	Container,
+	StyledLabel,
+	Title,
+	StyledError,
+	StyledErrorMsg,
+} from './InputForm.styles';
 import { Input } from '../Input/Input';
 import { Phone } from '../PhoneInput/PhoneInput';
 import { VerifyCode } from '../VerifyCode/VerifyCode';
 
 export const InputForm = (props) => {
-	const { title, type, required, ...rest } = props;
+	const {
+		title,
+		type,
+		required,
+		errors,
+		inputRef,
+		value,
+		setSendCode,
+		onChange,
+		disabled,
+		...rest
+	} = props;
 
 	return (
 		<Container>
@@ -16,11 +33,22 @@ export const InputForm = (props) => {
 				</Title>
 			</StyledLabel>
 			{type === 'phone' ? (
-				<Phone />
+				<Phone value={value} onChange={onChange} setSendCode={setSendCode} />
 			) : type === 'code' ? (
-				<VerifyCode />
+				<VerifyCode disabled={disabled} value={value} onChange={onChange} />
 			) : (
-				<Input type={type} {...rest} />
+				<Input
+					type={type}
+					{...rest}
+					ref={inputRef}
+					value={value}
+					onChange={onChange}
+				/>
+			)}
+			{!!errors && (
+				<StyledError>
+					<StyledErrorMsg>{errors.message}</StyledErrorMsg>
+				</StyledError>
 			)}
 		</Container>
 	);
