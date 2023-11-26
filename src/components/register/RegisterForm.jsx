@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -26,6 +27,7 @@ const schema = Yup.object().shape({
 });
 
 export const RegisterForm = () => {
+	const navigate = useNavigate();
 	const {
 		control,
 		handleSubmit,
@@ -33,7 +35,9 @@ export const RegisterForm = () => {
 	} = useForm({ resolver: yupResolver(schema) });
 	const [sendCode, setSendCode] = useState(false);
 
-	const onSubmit = () => {};
+	const onSubmit = () => {
+		navigate('/dashboard');
+	};
 
 	return (
 		<Container>
