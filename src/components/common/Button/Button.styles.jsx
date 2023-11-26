@@ -13,7 +13,10 @@ export const StyledButton = styled.button`
 
 	border: none;
 	border-radius: 8px;
-	background: ${(props) => props.theme.colors.primary.primary};
+	background: ${(props) =>
+		props.disabled
+			? props.theme.colors.greys.gainsboro
+			: props.theme.colors.primary.primary};
 `;
 
 export const StyledText = styled(CtaBig)`

@@ -33,9 +33,7 @@ export const RegisterForm = () => {
 	} = useForm({ resolver: yupResolver(schema) });
 	const [sendCode, setSendCode] = useState(false);
 
-	const onSubmit = () => {
-		console.log('Submit');
-	};
+	const onSubmit = () => {};
 
 	return (
 		<Container>
@@ -130,7 +128,7 @@ export const RegisterForm = () => {
 						/>
 					)}
 				/>
-				<Button name="Next" />
+				<Button name="Next" disabled={Object.keys(errors).length} />
 				<LoginContainer>
 					<CtaBig>Already have an account yet?</CtaBig>
 					<LoginLink>Login</LoginLink>
