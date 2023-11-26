@@ -9,6 +9,7 @@ export const Container = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 40px;
+	margin-bottom: 60px;
 
 	@media (min-width: ${defaultTheme.breakpoints.xl}) {
 		padding: ${(props) => `0px ${props.theme.spacing.s}`};
