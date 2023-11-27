@@ -56,6 +56,22 @@ export const SectionsContainer = styled.div`
 	flex: 1 0 0;
 	align-self: stretch;
 	background: ${(props) => props.theme.colors.blacksAndWhite.white};
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: 12px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: ${(props) => props.theme.colors.greys.nightRider};
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: ${(props) => props.theme.colors.greys.smoke};
+
+		border-radius: 20px;
+		border: ${(props) => `3px slid ${props.theme.colors.greys.nightRider}`};
+	}
 `;
 
 export const SectionContainer = styled.div`
