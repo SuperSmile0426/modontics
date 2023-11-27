@@ -15,11 +15,16 @@ const withLayout = (WrappedComponent) => {
 				{location.pathname === '/' ? (
 					<HeaderComponent />
 				) : (
-					<DashboardHeader setSidePanel={setSidePanel} sidePanel={sidePanel} />
+					location.pathname === '/dashboard' && (
+						<DashboardHeader
+							setSidePanel={setSidePanel}
+							sidePanel={sidePanel}
+						/>
+					)
 				)}
 				<Container>
 					<WrappedComponent {...props} />
-					{location.pathname !== '/' && sidePanel && <SideNav />}
+					{location.pathname === '/dashboard' && sidePanel && <SideNav />}
 				</Container>
 			</>
 		);
