@@ -11,6 +11,7 @@ const whiteDark = '#FFFFFF25';
 
 // Supportive
 const flamingo = '#E25252';
+const snow = '#FFF1F2';
 const tangerine = '#FCAF14';
 const turbo = '#F5CE23';
 const shakespeare = '#5B9EBB';
@@ -46,6 +47,7 @@ export const colors = {
 		shakespeare,
 		viking,
 		seagull,
+		snow,
 	},
 	greys: {
 		nightRider,

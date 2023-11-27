@@ -33,11 +33,22 @@ export const InputForm = (props) => {
 				</Title>
 			</StyledLabel>
 			{type === 'phone' ? (
-				<Phone value={value} onChange={onChange} setSendCode={setSendCode} />
+				<Phone
+					errors={errors}
+					value={value}
+					onChange={onChange}
+					setSendCode={setSendCode}
+				/>
 			) : type === 'code' ? (
-				<VerifyCode disabled={disabled} value={value} onChange={onChange} />
+				<VerifyCode
+					errors={errors}
+					disabled={disabled}
+					value={value}
+					onChange={onChange}
+				/>
 			) : (
 				<Input
+					errors={errors}
 					type={type}
 					{...rest}
 					ref={inputRef}

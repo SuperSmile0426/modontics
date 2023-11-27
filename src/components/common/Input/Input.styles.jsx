@@ -10,8 +10,16 @@ export const Container = styled.div`
 	gap: 4px;
 	align-self: stretch;
 	border-radius: ${(props) => props.theme.spacing.xs};
-	border: ${(props) => `1px solid ${props.theme.colors.greys.gainsboro}`};
-	background: ${(props) => props.theme.colors.blacksAndWhite.white};
+	border: ${(props) =>
+		`1px solid ${
+			props.errors
+				? props.theme.colors.supportive.flamingo
+				: props.theme.colors.greys.gainsboro
+		}`};
+	background: ${(props) =>
+		props.errors
+			? props.theme.colors.supportive.snow
+			: props.theme.colors.blacksAndWhite.white};
 
 	&:focus-within {
 		border: ${(props) => `1px solid ${props.theme.colors.greys.charcoal}`};
@@ -26,6 +34,11 @@ export const StyledInput = styled.input`
 	align-self: stretch;
 	border: none;
 	outline: none;
+
+	background: ${(props) =>
+		props.errors
+			? props.theme.colors.supportive.snow
+			: props.theme.colors.blacksAndWhite.white};
 
 	&::placeholder {
 		color: ${(props) => props.theme.colors.greys.charcoal};

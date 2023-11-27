@@ -8,7 +8,7 @@ import { Input } from '../Input/Input';
 import { CustomPhoneInput } from './PhoneInput.styles';
 
 export const Phone = forwardRef((props, ref) => {
-	const { value, onChange, setSendCode } = props;
+	const { value, errors, onChange, setSendCode } = props;
 
 	const [, setPhoneCountryCode] = useState('HK');
 	const [code, setCode] = useState(false);
@@ -31,7 +31,7 @@ export const Phone = forwardRef((props, ref) => {
 			countryCallingCodeEditable
 			defaultCountry="HK"
 			inputComponent={Input}
-			numberInputProps={{ code: code, setSendCode: setSendCode }}
+			numberInputProps={{ code: code, setSendCode: setSendCode, errors }}
 			flagComponent={(props) => (
 				<div
 					style={{

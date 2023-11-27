@@ -4,7 +4,7 @@ import { useVerificationHook } from '../../../hooks';
 import { Input } from '../Input/Input';
 
 export const VerifyCode = (props) => {
-	const { disabled, value, onChange } = props;
+	const { disabled, errors, value, onChange } = props;
 	const {
 		inputStates,
 		inputBoxReference,
@@ -21,6 +21,7 @@ export const VerifyCode = (props) => {
 			{inputStates.map((digit, index) => (
 				<div key={index}>
 					<Input
+						errors={errors}
 						disabled={disabled}
 						value={digit}
 						onChange={(e) => {
