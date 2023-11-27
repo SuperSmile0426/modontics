@@ -29,7 +29,16 @@ import {
 } from './DashboardHeader.styles';
 import NotificationIcon from '../../../assets/icons/notification-icon.svg';
 
-export const DashboardHeader = () => {
+export const DashboardHeader = (props) => {
+	const { sidePanel, setSidePanel } = props;
+
+	const panelFunctions = [
+		'Function A',
+		'Function B',
+		'Function C',
+		'Function D',
+	];
+
 	return (
 		<Container>
 			<ItemContainer>
@@ -71,30 +80,22 @@ export const DashboardHeader = () => {
 				</Notification>
 				<LeftLine />
 				<RightPanelContainer>
-					<RIghtPanelItem>
-						<SideFunction>
-							<NotificationIconImg src={NotificationIcon} />
-							<FunctionName>Function A</FunctionName>
-						</SideFunction>
-					</RIghtPanelItem>
-					<RIghtPanelItem>
-						<SideFunction>
-							<NotificationIconImg src={NotificationIcon} />
-							<FunctionName>Function B</FunctionName>
-						</SideFunction>
-					</RIghtPanelItem>
-					<RIghtPanelItem active>
-						<SideFunction>
-							<NotificationIconImg src={NotificationIcon} />
-							<FunctionName>Function C</FunctionName>
-						</SideFunction>
-					</RIghtPanelItem>
-					<RIghtPanelItem>
-						<SideFunction>
-							<NotificationIconImg src={NotificationIcon} />
-							<FunctionName>Function D</FunctionName>
-						</SideFunction>
-					</RIghtPanelItem>
+					{panelFunctions.map((panel, index) => (
+						<RIghtPanelItem
+							key={index}
+							active={(panel === sidePanel).toString()}
+						>
+							<SideFunction
+								onClick={() => {
+									if (panel === sidePanel) setSidePanel('');
+									else setSidePanel(panel);
+								}}
+							>
+								<NotificationIconImg src={NotificationIcon} />
+								<FunctionName>{panel}</FunctionName>
+							</SideFunction>
+						</RIghtPanelItem>
+					))}
 				</RightPanelContainer>
 			</NotificationContainer>
 		</Container>

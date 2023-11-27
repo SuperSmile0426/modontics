@@ -158,7 +158,7 @@ export const RIghtPanelItem = styled.div`
 
 	p {
 		color: ${(props) =>
-			props.active
+			props.active === 'true'
 				? props.theme.colors.primary.primary
 				: props.theme.colors.blacksAndWhite.primitive};
 	}
